@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timeline</title>
+</head>
+<body>
+  <h1>Timeline</h1>
+
+  <form action="/message" method="POST">
+    <textarea name="message" placeholder="Post a message"></textarea>
+    <button type="submit">Post a message</button>
+  </form>
+
+  <% messages.forEach(msg => { %>
+    <div>
+      <h3><%= msg.user.first_name %> <%= msg.user.last_name %> - <%= msg.createdAt.toDateString() %></h3>
+      <p><%= msg.message %></p>
+
+      <form action="/comment/<%= msg._id %>" method="POST">
+        <textarea name="comment" placeholder="Post a comment"></textarea>
+        <button type="submit">Post a comment</button>
+      </form>
+
+      <% if (msg.comments) { %>
+        <% msg.comments.forEach(comment => { %>
+          <p><strong><%= comment.user.first_name %>:</strong> <%= comment.comment %></p>
+        <% }) %>
+      <% } %>
+    </div>
+  <% }) %>
+</body>
+</html>
