@@ -5,7 +5,7 @@ const flash = require('connect-flash');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://mansoorabdullah580:mansoor0123@nodj6test.wtp7fip.mongodb.net/?retryWrites=true&w=majority&appName=timelineDB')
+mongoose.connect('mongodb+srv://mansoorabdullah580:@nodj6test.wtp7fip.mongodb.net/?retryWrites=true&w=majority&appName=timelineDB')
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error(err));
 
